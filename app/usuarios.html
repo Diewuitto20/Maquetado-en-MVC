@@ -1,0 +1,70 @@
+<!-- Archivo: usuarios.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>EcoGestión - Usuarios</title>
+    <link href="../lib/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="../lib/Ionicons/css/ionicons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/bracket.css">
+    <style>
+        .table-bubble { border-collapse: separate; border-spacing: 0 10px; }
+        .table-bubble thead th { border: none; font-weight: 700; text-transform: uppercase; color: #333; padding: 15px; }
+        .table-bubble tbody td { background: #fff; border: none; padding: 15px; }
+        .table-bubble tbody td:first-child { border-radius: 30px 0 0 30px; }
+        .table-bubble tbody td:last-child { border-radius: 0 30px 30px 0; }
+        .rounded-input { border-radius: 20px !important; border: 1px solid #ccc; padding-left: 15px; }
+        .btn-action { background: #f8f9fa; border-radius: 20px; padding: 5px 15px; border: 1px solid #ddd; font-size: 12px; color: #555; transition: all 0.2s; }
+        .btn-action:hover { background: #eee; }
+    </style>
+</head>
+<body>
+    <div class="br-mainpanel" style="margin-left: 0;"> <!-- Ajustado para ver la página sola -->
+        <div class="pd-x-20 pd-sm-x-30 pd-t-20 pd-sm-t-30">
+            <div class="d-flex align-items-center justify-content-between">
+                <h4 class="tx-gray-800 mg-b-5">Usuarios</h4>
+                <div class="d-flex align-items-center">
+                    <i class="fa fa-search mg-r-10 tx-18 color-gray"></i>
+                    <input type="text" class="form-control rounded-input wd-200" placeholder="Buscar">
+                </div>
+            </div>
+        </div>
+
+        <div class="br-pagebody pd-x-20 pd-sm-x-30">
+            <div class="table-responsive">
+                <table class="table table-bubble mg-b-0">
+                    <thead>
+                        <tr>
+                            <th class="wd-10p">Id</th>
+                            <th class="wd-25p">Nombre</th>
+                            <th class="wd-35p">Correo Electrónico</th>
+                            <th class="wd-30p text-center">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01</td>
+                            <td>Rufino</td>
+                            <td><u>rufinito123@gmail.com</u></td>
+                            <td class="text-center">
+                                <button class="btn-action mg-r-5"><i class="fa fa-pencil tx-success"></i> Activo</button>
+                                <button class="btn-action"><i class="fa fa-trash tx-danger"></i> Inactivo</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>02</td>
+                            <td>Diego</td>
+                            <td><u>dieguitoTec@gmail.com</u></td>
+                            <td class="text-center">
+                                <button class="btn-action mg-r-5"><i class="fa fa-pencil tx-success"></i> Activo</button>
+                                <button class="btn-action"><i class="fa fa-trash tx-danger"></i> Inactivo</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

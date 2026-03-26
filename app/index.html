@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Meta -->
+    <meta name="description" content="Sistema de Gestión de Material Reciclable">
+    <meta name="author" content="Recicladora Diaz Diaz">
+
+    <title>EcoGestión - Panel Administrativo</title>
+
+    <!-- vendor css -->
+    <link href="../lib/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="../lib/Ionicons/css/ionicons.css" rel="stylesheet">
+    <link href="../lib/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
+    <link href="../lib/jquery-switchbutton/jquery.switchButton.css" rel="stylesheet">
+
+    <!-- Bracket CSS -->
+    <link rel="stylesheet" href="../css/bracket.css">
+
+    <style>
+        /* ESTILOS TARJETAS SUPERIORES (Imagen 1) */
+        .small-box { border-radius: 4px; position: relative; display: block; margin-bottom: 20px; box-shadow: 0 1px 1px rgba(0,0,0,0.1); color: #fff; overflow: hidden; }
+        .small-box > .inner { padding: 20px; }
+        .small-box h3 { font-size: 38px; font-weight: bold; margin: 0 0 10px 0; white-space: nowrap; padding: 0; }
+        .small-box p { font-size: 15px; }
+        .small-box .icon { position: absolute; top: 5px; right: 15px; z-index: 0; font-size: 60px; color: rgba(0,0,0,0.15); }
+        .small-box .small-box-footer { position: relative; text-align: center; padding: 3px 0; color: rgba(255,255,255,0.8); display: block; z-index: 10; background: rgba(0,0,0,0.1); text-decoration: none; font-size: 13px; }
+        .small-box .small-box-footer:hover { background: rgba(0,0,0,0.15); color: #fff; }
+
+        /* ESTILO CALENDARIO (Imagen 0) */
+        .card-calendar-custom { background-color: #4CAF50; color: white; border-radius: 8px; border: none; }
+        .card-calendar-custom .card-header { background: transparent; border-bottom: 1px solid rgba(255,255,255,0.2); display: flex; justify-content: space-between; align-items: center; padding: 15px; }
+        .calendar-table { width: 100%; text-align: center; color: white; }
+        .calendar-table th { padding: 10px 0; opacity: 0.9; font-size: 12px; }
+        .calendar-table td { padding: 8px 0; font-weight: 500; }
+        .today-highlight { background: #66BB6A; border-radius: 4px; display: inline-block; width: 30px; height: 30px; line-height: 30px; }
+        .other-month { opacity: 0.4; }
+
+        /* HEADER (Imagen 2) */
+        .nav-link-header { color: #555; font-weight: 500; padding: 0 15px !important; }
+
+        /* ESTILO TABLA HISTORIAL (Imagen 3) */
+        .historial-card { border-radius: 0; border: none; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .historial-title { font-weight: 700; color: #333; font-size: 13px; margin-bottom: 25px; text-transform: uppercase; }
+        .table-historial thead th { border-top: 0; border-bottom-width: 1px; color: #333; font-weight: 700; font-size: 12px; text-transform: uppercase; padding-bottom: 15px; }
+        .table-historial tbody td { color: #7f8c8d; font-size: 14px; padding: 15px 10px; border-top: 1px solid #f2f2f2; }
+        .btn-recibo { color: #2980b9; text-decoration: none; font-weight: 500; }
+        .btn-recibo i { margin-right: 5px; }
+    </style>
+</head>
+
+<body>
+
+    <!-- ########## START: LEFT PANEL ########## -->
+    <div class="br-logo"><a href=""><span>[</span>Recicladora <span>]</span>Diaz Diaz</a></div>
+    <div class="br-sideleft overflow-y-auto">
+        <label class="sidebar-label pd-x-15 mg-t-20">Menú Principal</label>
+        <div class="br-sideleft-menu">
+            <a href="index.html" class="br-menu-link active">
+                <div class="br-menu-item"><i class="menu-item-icon icon ion-ios-home-outline tx-22"></i><span class="menu-item-label">Dashboard</span></div>
+            </a>
+            <a href="usuarios.html" class="br-menu-link">
+                <div class="br-menu-item"><i class="menu-item-icon icon ion-ios-people-outline tx-24"></i><span class="menu-item-label">Gestión Usuarios</span></div>
+            </a>
+            <a href="materiales.html" class="br-menu-link">
+                <div class="br-menu-item"><i class="menu-item-icon icon ion-ios-paper-outline tx-22"></i><span class="menu-item-label">Registro Materiales</span></div>
+            </a>
+            <a href="compras.html" class="br-menu-link">
+                <div class="br-menu-item"><i class="menu-item-icon icon ion-ios-cart-outline tx-24"></i><span class="menu-item-label">Registro Compras</span></div>
+            </a>
+        </div>
+    </div>
+
+    <!-- ########## START: HEAD PANEL ########## -->
+    <div class="br-header">
+        <div class="br-header-left">
+            <div class="navicon-left hidden-md-down"><a id="btnLeftMenu" href=""><i class="icon ion-navicon-round"></i></a></div>
+            <div class="navicon-left hidden-lg-up"><a id="btnLeftMenuMobile" href=""><i class="icon ion-navicon-round"></i></a></div>
+            <a href="" class="nav-link nav-link-header hidden-xs-down">Home</a>
+            <a href="" class="nav-link nav-link-header hidden-xs-down">Contact</a>
+        </div>
+        <div class="br-header-right">
+            <nav class="nav">
+                <a href="" class="nav-link pd-x-10"><i class="icon ion-ios-search-strong tx-22"></i></a>
+                <div class="dropdown">
+                    <a href="" class="nav-link pd-x-10 pos-relative" data-toggle="dropdown">
+                        <i class="icon ion-ios-chatbubbles-outline tx-22"></i>
+                        <span class="badge badge-danger pos-absolute t-15 r-0">3</span>
+                    </a>
+                </div>
+                <div class="dropdown">
+                    <a href="" class="nav-link pd-x-10 pos-relative" data-toggle="dropdown">
+                        <i class="icon ion-ios-bell-outline tx-22"></i>
+                        <span class="badge badge-warning pos-absolute t-15 r-0">15</span>
+                    </a>
+                </div>
+                <a href="" class="nav-link pd-x-10"><i class="icon ion-arrow-expand tx-20"></i></a>
+                <a href="" class="nav-link pd-x-10"><i class="icon ion-grid tx-20"></i></a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- ########## START: MAIN PANEL ########## -->
+    <div class="br-mainpanel">
+        <div class="br-pageheader pd-y-15 pd-l-20">
+            <nav class="breadcrumb pd-0 mg-0 tx-12">
+                <a class="breadcrumb-item" href="index.html">Home</a>
+                <span class="breadcrumb-item active">Dashboard v1</span>
+            </nav>
+        </div>
+
+        <div class="pd-x-20 pd-sm-x-30 pd-t-20 pd-sm-t-30">
+            <h4 class="tx-gray-800 mg-b-5">Dashboard</h4>
+        </div>
+
+        <div class="br-pagebody mg-t-5 pd-x-30">
+            <!-- TARJETAS SUPERIORES -->
+            <div class="row row-sm">
+                <div class="col-lg-3 col-6">
+                    <div class="small-box bg-info">
+                        <div class="inner"><h3>150</h3><p>Nuevas Compras</p></div>
+                        <div class="icon"><i class="ion ion-bag"></i></div>
+                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <div class="small-box bg-success">
+                        <div class="inner"><h3>53<sup style="font-size: 20px">%</sup></h3><p>Tasa Reciclaje</p></div>
+                        <div class="icon"><i class="ion ion-stats-bars"></i></div>
+                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <div class="small-box bg-warning">
+                        <div class="inner"><h3>44</h3><p>Registros Usuario</p></div>
+                        <div class="icon"><i class="ion ion-person-add"></i></div>
+                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <div class="small-box bg-danger">
+                        <div class="inner"><h3>65</h3><p>Material Total</p></div>
+                        <div class="icon"><i class="ion ion-pie-graph"></i></div>
+                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row row-sm mg-t-20">
+                <!-- COLUMNA IZQUIERDA: TABLAS -->
+                <div class="col-8">
+                    <!-- ÚLTIMOS MATERIALES -->
+                    <div class="card bd-0 shadow-base pd-30 mg-b-20">
+                        <h6 class="tx-13 tx-uppercase tx-inverse tx-semibold tx-spacing-1 mg-b-20">Últimos Materiales Registrados</h6>
+                        <table class="table table-valign-middle mg-b-0">
+                            <thead class="tx-uppercase tx-10 tx-bold">
+                                <tr><th>Material</th><th>Peso (kg)</th><th>Estado</th><th>Fecha</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>PET Transparente</td><td>120.5</td><td><span class="badge badge-success">Clasificado</span></td><td>25/03/2026</td></tr>
+                                <tr><td>Cartón Corrugado</td><td>45.0</td><td><span class="badge badge-warning">Pendiente</span></td><td>24/03/2026</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- HISTORIAL DE COMPRAS (Nueva Sección Imagen 3) -->
+                    <div class="card historial-card pd-30">
+                        <h6 class="historial-title">HISTORIAL DE COMPRAS DE MATERIAL</h6>
+                        <div class="table-responsive">
+                            <table class="table table-historial mg-b-0">
+                                <thead>
+                                    <tr>
+                                        <th>PROVEEDOR/USUARIO</th>
+                                        <th>TOTAL PAGO</th>
+                                        <th>MATERIAL</th>
+                                        <th>ACCIÓN</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Juan Pérez</td>
+                                        <td>$1,200.00</td>
+                                        <td>Aluminio (15kg)</td>
+                                        <td><a href="#" class="btn-recibo"><i class="fa fa-file-text-o"></i> Recibo</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COLUMNA DERECHA: CALENDARIO -->
+                <div class="col-4">
+                    <div class="card card-calendar-custom pd-b-20">
+                        <div class="card-header">
+                            <h6 class="mg-b-0 tx-white"><i class="icon ion-calendar mg-r-5"></i> Calendar</h6>
+                            <div class="tx-18">
+                                <i class="icon ion-android-menu mg-r-5"></i>
+                                <i class="icon ion-minus mg-r-5"></i>
+                                <i class="icon ion-android-close"></i>
+                            </div>
+                        </div>
+                        <div class="pd-20">
+                            <div class="d-flex justify-content-between align-items-center mg-b-20">
+                                <i class="fa fa-angle-left"></i>
+                                <span class="tx-uppercase tx-bold">March 2026</span>
+                                <i class="fa fa-angle-right"></i>
+                            </div>
+                            <table class="calendar-table">
+                                <thead>
+                                    <tr><th>Su</th><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
+                                    <tr><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td></tr>
+                                    <tr><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td></tr>
+                                    <tr><td>22</td><td>23</td><td>24</td><td><span class="today-highlight">25</span></td><td>26</td><td>27</td><td>28</td></tr>
+                                    <tr class="other-month"><td>29</td><td>30</td><td>31</td><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="br-footer">
+            <div class="footer-left"><div>Copyright &copy; 2026. EcoGestión.</div></div>
+        </footer>
+    </div>
+
+    <script src="../lib/jquery/jquery.js"></script>
+    <script src="../lib/bootstrap/bootstrap.js"></script>
+    <script src="../js/bracket.js"></script>
+</body>
+</html>

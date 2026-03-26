@@ -1,0 +1,75 @@
+<!-- Archivo: materiales.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>EcoGestión - Materiales</title>
+    <link href="../lib/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/bracket.css">
+    <style>
+        .table-bubble-material { border-collapse: separate; border-spacing: 0 8px; font-size: 13px; }
+        .table-bubble-material thead th { border: none; font-weight: 700; padding: 10px; }
+        .table-bubble-material tbody td { background: #fff; padding: 12px; border: none; text-align: center; }
+        .table-bubble-material tbody td:first-child { border-radius: 15px 0 0 15px; }
+        .table-bubble-material tbody td:last-child { border-radius: 0 15px 15px 0; }
+        .rounded-search { border-radius: 20px; border: 1px solid #ccc; padding: 5px 15px; }
+    </style>
+</head>
+<body style="background-color: #e9ecef;">
+    <div class="br-mainpanel" style="margin-left: 0;">
+        <div class="pd-30">
+            <div class="d-flex align-items-center justify-content-between mg-b-20">
+                <h4 class="tx-gray-800">Material</h4>
+                <div class="d-flex align-items-center bg-white pd-x-15 pd-y-5 rounded-20 shadow-base">
+                    <i class="fa fa-search mg-r-10 tx-gray-500"></i>
+                    <input type="text" class="form-control bd-0 pd-0" placeholder="Buscar" style="box-shadow: none;">
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-bubble-material">
+                    <thead>
+                        <tr class="tx-uppercase tx-11">
+                            <th>Id</th>
+                            <th>Nombre</th>
+                            <th>Precio Compra</th>
+                            <th>Precio Venta</th>
+                            <th>Stock Actual</th>
+                            <th>Capacidad Maxima</th>
+                            <th>Stock Minimo</th>
+                            <th>Clasificacion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01</td>
+                            <td>PET Transparente</td>
+                            <td>$0.50</td>
+                            <td>$1.20</td>
+                            <td>150 kg</td>
+                            <td>500 kg</td>
+                            <td>20 kg</td>
+                            <td>Plástico</td>
+                        </tr>
+                        <tr>
+                            <td>02</td>
+                            <td>Aluminio</td>
+                            <td>$1.50</td>
+                            <td>$3.00</td>
+                            <td>45 kg</td>
+                            <td>200 kg</td>
+                            <td>10 kg</td>
+                            <td>Metal</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="mg-t-30">
+                <button class="btn btn-info btn-oblong pd-x-30"><i class="fa fa-plus mg-r-10"></i> Nuevo Material</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
