@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Iniciar Sesión | recicladora</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            /* Paleta de colores Ambientalista */
+            --primary-green: #1a531c; /* Verde selva oscuro para botones */
+            --hover-green: #2a752e; /* Verde un poco más claro para hover */
+            --accent-green: #a3cfbb; /* Verde hoja muy suave para bordes de foco */
+            --text-dark: #2c3e50;
+            --text-muted: #7f8c8d;
+        }
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+        }
+
+        /* Fondo con imagen de naturaleza y superposición oscura */
+        .bg-image {
+            background-image: url('https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=1920&auto=format&fit=crop'); /* Imagen de bosque vía Unsplash */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100%;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -2;
+        }
+
+        .bg-overlay {
+            background-color: rgba(0, 0, 0, 0.5); /* Capa oscura para dar contraste al texto */
+            height: 100%;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .login-structure {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.92); /* Fondo blanco semitransparente */
+            padding: 3.5rem 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            width: 100%;
+            max-width: 430px;
+            backdrop-filter: blur(5px); /* Efecto de desenfoque detrás del panel */
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .brand-icon {
+            font-size: 3.5rem;
+            color: var(--primary-green);
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .login-header h2 {
+            font-weight: 600;
+            font-size: 1.75rem;
+            color: var(--primary-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .login-header p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 300;
+        }
+
+        /* Estilos de los campos de entrada */
+        .form-control {
+            border-radius: 10px;
+            padding: 14px 18px;
+            border: 1px solid #dce1e4;
+            background-color: #fcfdfd;
+            font-size: 0.95rem;
+        }
+
+        .form-control:focus {
+            box-shadow: 0 0 0 4px var(--accent-green);
+            border-color: var(--hover-green);
+        }
+
+        .input-group-text {
+            border-radius: 10px 0 0 10px;
+            background-color: #f1f3f4;
+            border: 1px solid #dce1e4;
+            color: var(--text-muted);
+            padding-left: 18px;
+            padding-right: 18px;
+        }
+
+        .input-group .form-control {
+            border-radius: 0 10px 10px 0;
+        }
+
+        /* Botón principal Verde */
+        .btn-login {
+            background-color: var(--primary-green);
+            border: none;
+            border-radius: 10px;
+            padding: 14px;
+            font-weight: 500;
+            font-size: 1.1rem;
+            width: 100%;
+            color: white;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-login:hover {
+            background-color: var(--hover-green);
+            transform: translateY(-2px); /* Pequeña animación de levante */
+            box-shadow: 0 5px 10px rgba(26, 83, 28, 0.3);
+            color: white;
+        }
+
+        .form-check-label {
+            font-size: 0.9rem;
+            color: var(--text-dark);
+        }
+
+        .forgot-password, .register-link {
+            font-size: 0.9rem;
+            text-decoration: none;
+            color: var(--primary-green);
+            font-weight: 500;
+        }
+
+        .forgot-password:hover, .register-link:hover {
+            text-decoration: underline;
+            color: var(--hover-green);
+        }
+
+        .text-register p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="bg-image"></div>
+    <div class="bg-overlay"></div>
+
+    <div class="login-structure">
+        <div class="login-container">
+            <div class="login-header">
+                <div class="brand-icon">
+                    <i class="fas fa-leaf"></i> </div>
+                <h2>Recicladora Diaz Diaz</h2>
+                <p>Conéctate con tu panel ambiental.</p>
+            </div>
+
+            <form action="login_process.php" method="post">
+                <div class="mb-3">
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                        <input type="email" class="form-control" name="email" id="email" placeholder="correo@ejemplo.com" required>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                        <input type="password" class="form-control" name="password" id="password" placeholder="Tu contraseña" required>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="rememberMe">
+                        <label class="form-check-label" for="rememberMe">Recordarme</label>
+                    </div>
+                    <a href="#" class="forgot-password">¿Olvidaste la contraseña?</a>
+                </div>
+
+                <button type="submit" class="btn btn-login">Iniciar Sesión Verde</button>
+            </form>
+
+            <div class="text-center mt-5 text-register">
+                <p class="mb-0">¿Nuevo en el movimiento? <a href="registro.html" class="register-link">Únete aquí</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bundle.min.js"></script>
+</body>
+
+</html>
